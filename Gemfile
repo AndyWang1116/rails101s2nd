@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.2'
 
 # 安裝devise, 各種使用者功能
 gem 'devise'
