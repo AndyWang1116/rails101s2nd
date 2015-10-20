@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rails101s2nd</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  <!-- 應該是灌完bootstrap-sass後自動產生 -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container-fluid">  <!-- container-fluid 讓網頁左右留白邊 -->
+<%= render "common/navbar" %>  <!-- 引用partial  views/common/_navbar.html.erb -->
+<%= notice_message %>          <!-- 使用flash message -->
+<%= yield %>                   <!-- 各個網頁內容主體 -->
+</div>
+<%= render "common/footer" %>  <!-- 引用partial views/common/_footer.html.erb -->
+
+</body>
+</html>

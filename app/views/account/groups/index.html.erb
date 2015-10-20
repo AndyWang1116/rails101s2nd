@@ -1,0 +1,30 @@
+<div class="col-md-12">
+
+  <h2 class="text-ceter"> 我加入的討論板 </h2>
+
+  <table class= "table">
+    <thead>
+      <tr>
+        <th> # </th>
+        <th> Title </th>
+        <th> Description </th>
+        <th> Post Count </th>
+        <th> Last Update </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @groups.each do |group| %>
+      <tr>
+        <td> # </td>
+        <td> <%= link_to(truncate(group.title, length: 15), group_path(group)) %> </td>
+        <td> <%= render_group_description(group) %> </td>
+        <td> <%= group.posts.size %> </td>   <!-- 最開始是使用 .count 但是這樣會從SQL一篇篇抓出數量, 所以改成.size 直接抓posts_count的值 -->
+        <td> <%= group.updated_at %> </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
