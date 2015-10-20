@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-# 安裝部署Heroku用的資料庫 pg
-gem 'pg'
+
 
 # 安裝devise, 各種使用者功能
 gem 'devise'
@@ -14,7 +13,16 @@ gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# 部署至Heroku, 因資料庫不同於Rails預設, 需修改以下
+group :development do
+  gem 'sqlite3'
+end
+group :producction do
+  gem 'pg'
+  gem 'rails_12factor'   # 此Gem 會調整我們的專案app成為適合在Heroku上的工作模式及系統設定
+end
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
