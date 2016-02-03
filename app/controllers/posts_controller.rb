@@ -5,6 +5,7 @@ class PostsController < ApplicationController
                                # after_action  -- 執行完成action後的動作
 
   before_action :member_required, only: [:new, :create]  # 在底下private定義member_required,內容為對!current_user使用is_member_of?(已在user.rb定義)
+
   def new
     @post = @group.posts.new
   end
@@ -48,6 +49,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content)
   end
 
+  # 使用before_action 定義find_group把每個action都有的重複code收進來，在最一開始執行 before_action :find_group
   def find_group
     @group = Group.find(params[:group_id])
   end

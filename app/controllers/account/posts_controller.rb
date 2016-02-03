@@ -4,7 +4,7 @@ class Account::PostsController < ApplicationController
 
   def index
   #  @posts = current_user.posts.order("updated_at DESC")     # .order("updated_at DESC") 讓文章倒序排列(DESC) 最新 - 最舊
-     @posts = current_user.posts.recent                      # 已在model/post.rb 使用scope將上面功能改叫作 .recent
+     @posts = current_user.posts.recent                      # 已在models/post.rb 使用scope將上面功能改叫作 .recent
   end
 
 end

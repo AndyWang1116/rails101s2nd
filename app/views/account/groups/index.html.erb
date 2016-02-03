@@ -18,7 +18,7 @@
       <tr>
         <td> # </td>
         <td> <%= link_to(truncate(group.title, length: 15), group_path(group)) %> </td>
-        <td> <%= render_group_description(group) %> </td>
+        <td> <%= render_group_description(group) %> </td>  <!-- 使用在applcation_helper內自訂的helper, 當樣式要改時只須去那邊改即可 -->
         <td> <%= group.posts.size %> </td>   <!-- 最開始是使用 .count 但是這樣會從SQL一篇篇抓出數量, 所以改成.size 直接抓posts_count的值 -->
         <td> <%= group.updated_at %> </td>
       <% end %>

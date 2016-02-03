@@ -75,8 +75,10 @@ class GroupsController < ApplicationController
 
   private
 
+  # 整串 Hash 參數 (params) 只允許 (.permit) group 資料表 (:group) 的 :title 跟 :description 這二個欄位的資料通過
+  # 進入下一個階段的 SQL 資料庫存取，其餘的參數一律忽略
   def group_params
-    params.require(:group).permit(:title, :description)
+    params.require(:group).permit(:title, :description) #
   end
 end
 
